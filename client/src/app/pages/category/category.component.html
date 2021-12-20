@@ -1,1 +1,7 @@
-<p>category works!</p>
+<h2>Category</h2>
+
+<hr>
+<app-add-form (onAdd)="create($event)"></app-add-form>
+<hr>
+<app-display-table (onDelete)="remove($event)" [categories]="categories"></app-display-table>
+
