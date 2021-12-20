@@ -17,3 +17,7 @@ Access the container
 Get logs
 
 `docker logs mysql`
+
+Create database
+
+TODO
