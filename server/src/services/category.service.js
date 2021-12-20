@@ -18,7 +18,9 @@ const remove = async (req, res) => {
     where: {
       id,
     },
-  }).then(() => res.sendStatus(200));
+  }).then(() => res.send({
+    message: 'Deleted with success',
+  }));
 };
 
 export default { getAll, create, remove };
