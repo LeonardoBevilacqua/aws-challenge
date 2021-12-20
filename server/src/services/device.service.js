@@ -1,7 +1,12 @@
+import Category from '../models/category.model.js';
 import Device from '../models/device.model.js';
 
 const getAll = async (_req, res) => {
-  const devices = await Device.findAll();
+  const devices = await Device.findAll({
+    include: [{
+      model: Category,
+    }],
+  });
 
   res.send(devices);
 };
