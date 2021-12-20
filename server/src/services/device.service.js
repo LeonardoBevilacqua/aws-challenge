@@ -7,6 +7,16 @@ const getAll = async (_req, res) => {
 };
 
 const create = (req, res) => {
+  if (!req.body.color.match(/^[a-zA-Z]*$/g)) {
+    res.sendStatus(400);
+    return;
+  }
+
+  if (req.body.partNumber < 0) {
+    res.sendStatus(400);
+    return;
+  }
+
   Device.create({
     categoryId: req.body.categoryId,
     color: req.body.color,
