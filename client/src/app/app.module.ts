@@ -6,9 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { AddCategoryComponent } from './pages/category/components/add-category/add-category.component';
+import { DisplayCategoryComponent } from './pages/category/components/display-category/display-category.component';
 import { DeviceComponent } from './pages/device/device.component';
-import { DisplayTableComponent } from './pages/category/components/display-table/display-table.component';
-import { AddFormComponent } from './pages/category/components/add-form/add-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: DeviceComponent },
@@ -21,8 +21,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     CategoryComponent,
     DeviceComponent,
-    DisplayTableComponent,
-    AddFormComponent
+    AddCategoryComponent,
+    DisplayCategoryComponent
   ],
   imports: [
     BrowserModule,
