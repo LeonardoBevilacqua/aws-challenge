@@ -1,5 +1,6 @@
 import express, { json } from 'express';
 import cors from 'cors';
+import testController from './controllers/test.controller.js';
 
 const app = express();
 
@@ -16,6 +17,9 @@ app.use(json());
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' });
 });
+
+// routes
+app.use('/test', testController);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console

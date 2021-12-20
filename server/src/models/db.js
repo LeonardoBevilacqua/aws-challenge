@@ -1,19 +1,23 @@
-import mysql from 'mysql';
+/* eslint-disable no-console */
+import Sequelize from 'sequelize';
 import {
-  HOST, DB, USER, PASSWORD,
-} from '../config/db.config';
+  DB, HOST, PASSWORD, USER,
+} from '../config/db.config.js';
 
 // create connection
-const connection = mysql.createConnection({
+const sequelize = new Sequelize(DB, USER, PASSWORD, {
   host: HOST,
-  user: USER,
-  password: PASSWORD,
-  database: DB,
+  dialect: 'mysql',
 });
 
 // open connection
-connection.connect((error) => {
-  if (error) {
-    throw error;
-  }
-});
+sequelize.authenticate().then(
+  () => console.log('Connection has been estabished with database'),
+)
+  .catch((err) => console.error('unable to connect to the database: ', err));
+
+sequelize.sync()
+  .then((result) => console.log(result))
+  .catch((err) => console.log(err));
+
+export default sequelize;
