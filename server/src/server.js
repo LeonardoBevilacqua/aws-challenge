@@ -1,6 +1,7 @@
 import express, { json } from 'express';
 import cors from 'cors';
 import testController from './controllers/test.controller.js';
+import categoryController from './controllers/category.controller.js';
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 
 // routes
 app.use('/test', testController);
+app.use('/category', categoryController);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
