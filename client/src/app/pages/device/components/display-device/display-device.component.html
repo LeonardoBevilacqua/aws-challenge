@@ -1,0 +1,30 @@
+<div class="card text-dark bg-light">
+    <div class="card-header">{{devices.length}} {{devices.length === 1 ? 'device' : 'devices'}}</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Part Number</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let device of devices">
+                    <th scope="row">{{device.id}}</th>
+                    <td>{{device.color}}</td>
+                    <td>{{device.partNumber}}</td>
+                    <td>{{device.category?.name}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="remove(device)"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+                <tr *ngIf="!devices.length">
+                    <th colspan="5" class="text-center">No devices avaliable.</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

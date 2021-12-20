@@ -9,6 +9,8 @@ import { CategoryComponent } from './pages/category/category.component';
 import { AddCategoryComponent } from './pages/category/components/add-category/add-category.component';
 import { DisplayCategoryComponent } from './pages/category/components/display-category/display-category.component';
 import { DeviceComponent } from './pages/device/device.component';
+import { AddDeviceComponent } from './pages/device/components/add-device/add-device.component';
+import { DisplayDeviceComponent } from './pages/device/components/display-device/display-device.component';
 
 const appRoutes: Routes = [
   { path: '', component: DeviceComponent },
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
     CategoryComponent,
     DeviceComponent,
     AddCategoryComponent,
-    DisplayCategoryComponent
+    DisplayCategoryComponent,
+    AddDeviceComponent,
+    DisplayDeviceComponent
   ],
   imports: [
     BrowserModule,

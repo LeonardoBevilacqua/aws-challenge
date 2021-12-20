@@ -1,1 +1,6 @@
-<p>device works!</p>
+<h2>Device</h2>
+
+<hr>
+<app-add-device (addDevice)="create($event)"></app-add-device>
+<hr>
+<app-display-device (deleteDevice)="remove($event)" [devices]="devices"></app-display-device>

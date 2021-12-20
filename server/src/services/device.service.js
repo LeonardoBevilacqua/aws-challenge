@@ -26,7 +26,15 @@ const create = (req, res) => {
     categoryId: req.body.categoryId,
     color: req.body.color,
     partNumber: req.body.partNumber,
-  }).then((device) => res.send(device)).catch(() => res.sendStatus(400));
+  }).then((newDevice) => {
+    Device.findByPk(newDevice.id, {
+      include: [{
+        model: Category,
+      }],
+    }).then((device) => {
+      res.send(device);
+    }).catch(() => res.sendStatus(500));
+  }).catch(() => res.sendStatus(400));
 };
 
 const remove = async (req, res) => {
