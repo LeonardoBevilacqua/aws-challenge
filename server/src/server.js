@@ -8,7 +8,7 @@ const app = express();
 
 const corsOptions = {
   origin: ['http://localhost:4200', 'http://d1phewb3ogwbfl.cloudfront.net'],
-  methods: "GET, POST, DELETE, OPTIONS",
+  methods: 'GET, POST, DELETE, OPTIONS',
 };
 
 const PORT = process.env.PORT || 5000;
