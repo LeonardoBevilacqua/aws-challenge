@@ -1,6 +1,43 @@
 import Category from '../models/category.model.js';
 import Device from '../models/device.model.js';
 
+const isBodyValid = async (body, res) => {
+  if (!body.color.trim()) {
+    res.status(400);
+    res.send({
+      message: 'Color must not be empty!',
+    });
+    return false;
+  }
+
+  if (!body.color.match(/^[a-zA-Z]*$/g)) {
+    res.status(400);
+    res.send({
+      message: 'Color must have only letters!',
+    });
+    return false;
+  }
+
+  if (body.partNumber < 0) {
+    res.status(400);
+    res.send({
+      message: 'Part Number must be above 0!',
+    });
+    return false;
+  }
+
+  const category = await Category.findByPk(body.categoryId);
+  if (!category) {
+    res.status(400);
+    res.send({
+      message: 'Category does not exist!',
+    });
+    return false;
+  }
+
+  return true;
+};
+
 const getAll = async (_req, res) => {
   const devices = await Device.findAll({
     include: [{
@@ -11,17 +48,10 @@ const getAll = async (_req, res) => {
   res.send(devices);
 };
 
-const create = (req, res) => {
-  if (!req.body.color.match(/^[a-zA-Z]*$/g)) {
-    res.sendStatus(400);
+const create = async (req, res) => {
+  if (!await isBodyValid(req.body, res)) {
     return;
   }
-
-  if (req.body.partNumber < 0) {
-    res.sendStatus(400);
-    return;
-  }
-
   Device.create({
     categoryId: req.body.categoryId,
     color: req.body.color,
