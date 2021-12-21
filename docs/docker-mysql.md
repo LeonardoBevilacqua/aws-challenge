@@ -4,7 +4,7 @@ Get the container
 
 Create the container
 
-`docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -d mysql` 
+`docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=awschallenge -d mysql` 
 
 Start the container
 
@@ -17,7 +17,3 @@ Access the container
 Get logs
 
 `docker logs mysql`
-
-Create database
-
-TODO
