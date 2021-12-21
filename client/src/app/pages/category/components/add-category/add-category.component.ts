@@ -11,16 +11,32 @@ export class AddCategoryComponent {
   category: Category = {
     name: ""
   };
+  errors: any = {};
 
   onSubmit(): void {
+    if (!this.isFormValid()) {
+      return;
+    }
+
     this.addCategory.emit(this.category)
 
-    this.resetCategory();
+    this.resetForm();
   }
 
-  private resetCategory(): void {
+  private resetForm(): void {
     this.category = {
       name: ""
     };
+    this.errors = {};
+  }
+
+  private isFormValid(): boolean {
+    this.errors = {};
+    if (!this.category.name.trim()) {
+      this.errors.name = "Name must not be empty!";
+      return false;
+    }
+
+    return true;
   }
 }

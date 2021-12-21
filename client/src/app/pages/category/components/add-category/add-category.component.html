@@ -1,18 +1,21 @@
-<div class="accordion" id="accordionFlushExample">
+<div class="accordion" id="accordionForm">
     <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
+        <h2 class="accordion-header" id="addFormHeader">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                data-bs-target="#addFormBody" aria-expanded="false" aria-controls="addFormBody">
                 Create
             </button>
         </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample">
+        <div id="addFormBody" class="accordion-collapse collapse" aria-labelledby="addFormHeader"
+            data-bs-parent="#accordionForm">
             <div class="accordion-body">
                 <form (ngSubmit)="onSubmit()">
-                    <div class="d-flex gap-2">
+                    <div class="mb-3">
                         <label for="name" class="align-self-center form-label m-0">Name</label>
                         <input type="text" class="form-control" [(ngModel)]="category.name" id="name" name="name">
+                        <div class="form-text text-danger" *ngIf="errors.name">{{errors.name}}</div>
+                    </div>
+                    <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
