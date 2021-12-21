@@ -7,8 +7,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/category">Category Management</a>
-        <a class="nav-link" routerLink="/">Device Management</a>
+        <a class="nav-link" [ngClass]="getCurrentRoute() === '/category' ? 'active' : ''" routerLink="/category">Category Management</a>
+        <a class="nav-link" [ngClass]="getCurrentRoute() === '/' ? 'active' : ''" routerLink="/">Device Management</a>
       </div>
     </div>
   </div>
