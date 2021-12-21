@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Device } from '../models/device';
 
 const httpOptions = {
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DeviceService {
-  private apiUrl = 'http://localhost:5000/device';
+  private apiUrl = `${environment.apiUrl}/device`;
 
   constructor(private http: HttpClient) { }
 
