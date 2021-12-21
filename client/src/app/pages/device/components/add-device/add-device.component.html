@@ -13,7 +13,7 @@
                     <div class="d-flex gap-2 mb-3">
                         <div class="w-100">
                             <label for="color" class="align-self-center form-label m-0">Color</label>
-                            <input type="text" class="form-control" [(ngModel)]="device.color" id="color" name="color">
+                            <input type="text" class="form-control" [(ngModel)]="device.color" id="color" name="color" maxlength="16">
                             <div class="form-text text-danger" *ngIf="errors.color">{{errors.color}}</div>
                         </div>
                         <div class="w-100">
