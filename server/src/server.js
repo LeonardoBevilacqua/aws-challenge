@@ -1,6 +1,5 @@
-import express, { json } from 'express';
 import cors from 'cors';
-import testController from './controllers/test.controller.js';
+import express, { json } from 'express';
 import categoryController from './controllers/category.controller.js';
 import deviceController from './controllers/device.controller.js';
 
@@ -23,7 +22,6 @@ app.get('/', (req, res) => {
 });
 
 // routes
-app.use('/test', testController);
 app.use('/category', categoryController);
 app.use('/device', deviceController);
 
